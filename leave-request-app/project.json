@@ -1,0 +1,19 @@
+{
+  "guid" : "leave-request-app",
+  "actions" : [
+    {
+      "name" : "build",
+      "commands" : [
+        {
+          "os" : "mac",
+          "command" : "sh build-mac.sh"
+        },
+        {
+          "os" : "linux",
+          "command" : "sh build-linux.sh"
+        }
+      ],
+      "publish" : "true"
+    }
+  ]
+}
