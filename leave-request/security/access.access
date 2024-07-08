@@ -1,0 +1,12 @@
+{
+    "constraints": [
+        {
+            "path": "/leave-request/gen/trigger-new-process/forms/trigger-new-process/index.html",
+            "method": "*",
+            "scope": "HTTP",
+            "roles": [
+                "employee"
+            ]
+        }
+    ]
+}
