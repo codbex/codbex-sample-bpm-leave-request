@@ -7,18 +7,18 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     };
 
     $scope.model = {};
-    $scope.model.param2 = 0;
 
-    $scope.model.param1 = "";
-    $scope.model.param2 = 0;
+    $scope.model.fromDate = new Date();
+    $scope.model.toDate = new Date();
     
-    $scope.onTriggerClicked = function(){
+    $scope.onSubmitClicked = function(){
+        console.log("Model:" + JSON.stringify($scope.model));
         $http.post("/services/ts/leave-request/api/ProcessService.ts/processes", JSON.stringify($scope.model)).then(function (response) {
             if (response.status != 202) {
                 alert(`Unable to trigger a new process: '${response.message}'`);
                 return;
             }
-            alert("A new process instance has been triggered.\nResponse: " + JSON.stringify(response.data));
+            alert("Submit request has been created.\nResponse: " + JSON.stringify(response.data));
         });
     }
     

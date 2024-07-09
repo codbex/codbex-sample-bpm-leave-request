@@ -5,4 +5,4 @@ const executionId = execution.getId();
 
 const processVariables = process.getVariables(executionId);
 
-console.log("Hello World! Process variables: " + processVariables);
+console.log("Notifying approvers! Process variables: " + processVariables);

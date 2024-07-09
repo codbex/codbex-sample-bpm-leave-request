@@ -1,0 +1,13 @@
+{
+    "feeds": [],
+    "scripts": [],
+    "code": "",
+    "form": [
+        {
+            "controlId": "header",
+            "groupId": "fb-display",
+            "title": "Process leave request",
+            "size": 1
+        }
+    ]
+}
