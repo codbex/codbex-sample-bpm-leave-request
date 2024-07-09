@@ -1,11 +1,11 @@
-import { Controller, Post, response } from "sdk/http"
-import { process } from "sdk/bpm"
+import { Controller, Post, Put, Get, response } from "sdk/http"
+import { process, tasks } from "sdk/bpm"
 import { user } from "sdk/security";
 
 @Controller
 class ProcessService {
 
-    @Post("/processes")
+    @Post("/requests")
     public startProcess(parameters: any) {
         const processKey = 'leave-request';
 
@@ -23,6 +23,32 @@ class ProcessService {
             parameters: processParams,
             message: `Started process instance with id [${processInstanceId}] for process with key [${processKey}]`
         };
+    }
+
+    @Put("/requests/:id/approve")
+    public approveRequest(_: any, ctx: any) {
+        const taskId = ctx.pathParameters.id;
+        this.completeTask(taskId, true);
+    }
+
+    @Put("/requests/:id/reject")
+    public rejectRequest(_: any, ctx: any) {
+        const taskId = ctx.pathParameters.id;
+        this.completeTask(taskId, false);
+    }
+
+    private completeTask(taskId: string, approved: boolean) {
+        const variables = {
+            approver: user.getName(),
+            requestApproved: approved
+        };
+        tasks.complete(taskId, variables);
+    }
+
+    @Get("/requests/:id/details")
+    public getRequestDetails(_: any, ctx: any) {
+        const taskId = ctx.pathParameters.id;
+        return tasks.getVariables(taskId);
     }
 
 }

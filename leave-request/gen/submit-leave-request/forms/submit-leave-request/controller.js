@@ -13,12 +13,12 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     
     $scope.onSubmitClicked = function(){
         console.log("Model:" + JSON.stringify($scope.model));
-        $http.post("/services/ts/leave-request/api/ProcessService.ts/processes", JSON.stringify($scope.model)).then(function (response) {
+        $http.post("/services/ts/leave-request/api/ProcessService.ts/requests", JSON.stringify($scope.model)).then(function (response) {
             if (response.status != 202) {
-                alert(`Unable to trigger a new process: '${response.message}'`);
+                alert(`Unable to create new leave request: '${response.message}'`);
                 return;
             }
-            alert("Submit request has been created.\nResponse: " + JSON.stringify(response.data));
+            alert("Leave request has been created.\nResponse: " + JSON.stringify(response.data));
         });
     }
     

@@ -11,7 +11,7 @@
     </serviceTask>
     <sequenceFlow id="sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4" sourceRef="start-event" targetRef="notify-approvers"></sequenceFlow>
     <endEvent id="end-event"></endEvent>
-    <userTask id="process-request" name="Process request" flowable:formKey="http://localhost/services/web/leave-request/gen/process-leave-request/forms/process-leave-request/index.html"></userTask>
+    <userTask id="process-request" name="Process request" flowable:candidateGroups="employee-manager" flowable:formKey="http://localhost/services/web/leave-request/gen/process-leave-request/forms/process-leave-request/index.html"></userTask>
     <sequenceFlow id="sid-645847E8-C959-48BD-816B-2E9CC4A2F08A" sourceRef="notify-approvers" targetRef="process-request"></sequenceFlow>
     <sequenceFlow id="sid-EC1DFE1D-DDF3-4731-8104-266E1434AA40" sourceRef="process-request" targetRef="sid-8DB88F3F-76D9-4497-AAB1-895550B8919F"></sequenceFlow>
     <serviceTask id="send-approved-notification" name="Send approved notification" flowable:async="true" flowable:delegateExpression="${JSTask}">
@@ -54,7 +54,7 @@
         <omgdc:Bounds height="80.00000000000001" width="100.0" x="702.0000402645668" y="90.00000253590692"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="send-declined-notification" id="BPMNShape_send-declined-notification">
-        <omgdc:Bounds height="80.0" width="100.0" x="689.9999897181989" y="284.9999957531691"></omgdc:Bounds>
+        <omgdc:Bounds height="80.0" width="100.0" x="702.0000402645668" y="284.9999957531691"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-8DB88F3F-76D9-4497-AAB1-895550B8919F" id="BPMNShape_sid-8DB88F3F-76D9-4497-AAB1-895550B8919F">
         <omgdc:Bounds height="40.0" width="40.0" x="568.000008002195" y="195.00000274723246"></omgdc:Bounds>
@@ -64,8 +64,8 @@
         <omgdi:waypoint x="299.9999999999989" y="93.00000032288062"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="sid-2FF74FA1-709A-4D50-AA43-0153D6D2940B" id="BPMNEdge_sid-2FF74FA1-709A-4D50-AA43-0153D6D2940B" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
-        <omgdi:waypoint x="789.9499897181987" y="295.89947281998315"></omgdi:waypoint>
-        <omgdi:waypoint x="916.8981719482008" y="222.01824858400283"></omgdi:waypoint>
+        <omgdi:waypoint x="801.9500402645667" y="293.92654739551847"></omgdi:waypoint>
+        <omgdi:waypoint x="917.1075894756889" y="222.36438206128517"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="sid-EC1DFE1D-DDF3-4731-8104-266E1434AA40" id="BPMNEdge_sid-EC1DFE1D-DDF3-4731-8104-266E1434AA40" flowable:sourceDockerX="50.0" flowable:sourceDockerY="39.99999999999999" flowable:targetDockerX="20.0" flowable:targetDockerY="20.0">
         <omgdi:waypoint x="588.0000026105517" y="132.94999921023845"></omgdi:waypoint>
@@ -76,8 +76,8 @@
         <omgdi:waypoint x="916.3674786501166" y="208.9380545640806"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="declined-flow" id="BPMNEdge_declined-flow" flowable:sourceDockerX="20.0" flowable:sourceDockerY="20.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
-        <omgdi:waypoint x="599.5734434382433" y="223.37595722126417"></omgdi:waypoint>
-        <omgdi:waypoint x="689.9999897181989" y="288.8157831749531"></omgdi:waypoint>
+        <omgdi:waypoint x="599.9401679508512" y="223.00912558698226"></omgdi:waypoint>
+        <omgdi:waypoint x="702.0000402645668" y="291.46341911702683"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="sid-645847E8-C959-48BD-816B-2E9CC4A2F08A" id="BPMNEdge_sid-645847E8-C959-48BD-816B-2E9CC4A2F08A" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="39.99999999999999">
         <omgdi:waypoint x="399.95000000000005" y="92.99999983408371"></omgdi:waypoint>
