@@ -43,16 +43,15 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     $http.get(detailsUrl)
         .then(function (response) {
             if (response.status != 200) {
-                alert(`Unable to get details for request: '${response.message}'`);
+                alert(`Unable to get details for the request: '${response.message}'`);
                 return;
             }
             const details = response.data;
     
             // fill details
             $scope.model.requester = details.requester;
-            $scope.model.hours = details.hours;
-            $scope.model.fromDate = details.fromDate;
-            $scope.model.toDate = details.toDate;
+            $scope.model.fromDate = new Date(details.fromDate);
+            $scope.model.toDate = new Date(details.toDate);
         });
 
 }]);

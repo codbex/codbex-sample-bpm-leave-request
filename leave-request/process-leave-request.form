@@ -1,7 +1,7 @@
 {
     "feeds": [],
     "scripts": [],
-    "code": "let url = new URL(window.location);\nlet params = new URLSearchParams(url.search);\nlet taskId = params.get(\"taskId\");\n\n$scope.onApproveClicked = function () {\n    const url = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/approve`;\n    $http.put(url)\n        .then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to approve request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Request Approved\");\n    });\n};\n\n$scope.onDeclineClicked = function () {\n    const url = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/reject`;\n    $http.put(url)\n        .then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to decline request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Request Declined\");\n    });\n\n};\n\nconst detailsUrl = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/details`;\n$http.get(detailsUrl)\n    .then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to get details for request: '${response.message}'`);\n            return;\n        }\n        const details = response.data;\n\n        // fill details\n        $scope.model.requester = details.requester;\n        $scope.model.hours = details.hours;\n        $scope.model.fromDate = details.fromDate;\n        $scope.model.toDate = details.toDate;\n    });",
+    "code": "let url = new URL(window.location);\nlet params = new URLSearchParams(url.search);\nlet taskId = params.get(\"taskId\");\n\n$scope.onApproveClicked = function () {\n    const url = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/approve`;\n    $http.put(url)\n        .then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to approve request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Request Approved\");\n    });\n};\n\n$scope.onDeclineClicked = function () {\n    const url = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/reject`;\n    $http.put(url)\n        .then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to decline request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Request Declined\");\n    });\n\n};\n\nconst detailsUrl = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/details`;\n$http.get(detailsUrl)\n    .then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to get details for the request: '${response.message}'`);\n            return;\n        }\n        const details = response.data;\n\n        // fill details\n        $scope.model.requester = details.requester;\n        $scope.model.fromDate = new Date(details.fromDate);\n        $scope.model.toDate = new Date(details.toDate);\n    });",
     "form": [
         {
             "controlId": "header",
@@ -26,36 +26,26 @@
             "errorState": "Incorrect input"
         },
         {
-            "controlId": "input-textfield",
+            "controlId": "input-date",
             "groupId": "fb-controls",
             "id": "fromDateId",
             "label": "From date",
             "horizontal": false,
             "isCompact": false,
-            "placeholder": "",
-            "type": "text",
-            "model": "",
-            "required": false,
-            "minLength": 0,
-            "maxLength": -1,
-            "validationRegex": "",
-            "errorState": "Incorrect input"
+            "type": "date",
+            "model": "fromDate",
+            "required": false
         },
         {
-            "controlId": "input-textfield",
+            "controlId": "input-date",
             "groupId": "fb-controls",
             "id": "toDateId",
             "label": "To date",
             "horizontal": false,
             "isCompact": false,
-            "placeholder": "",
-            "type": "text",
-            "model": "",
-            "required": false,
-            "minLength": 0,
-            "maxLength": -1,
-            "validationRegex": "",
-            "errorState": "Incorrect input"
+            "type": "date",
+            "model": "toDate",
+            "required": false
         },
         {
             "controlId": "container-hbox",
