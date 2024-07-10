@@ -26,7 +26,7 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     };
     
     $scope.onDeclineClicked = function () {
-        const url = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/reject`;
+        const url = `/services/ts/leave-request/api/ProcessService.ts/requests/${taskId}/decline`;
         $http.put(url)
             .then(function (response) {
             if (response.status != 200) {

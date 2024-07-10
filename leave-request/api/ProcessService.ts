@@ -31,7 +31,7 @@ class ProcessService {
         this.completeTask(taskId, true);
     }
 
-    @Put("/requests/:id/reject")
+    @Put("/requests/:id/decline")
     public rejectRequest(_: any, ctx: any) {
         const taskId = ctx.pathParameters.id;
         this.completeTask(taskId, false);
