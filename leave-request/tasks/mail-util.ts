@@ -16,7 +16,7 @@ function isMailConfigured() {
 }
 
 export function sendMail(to: string, subject: string, content: string) {
-    const from = configurations.get("LEAVE_REQUEST_APP_FROM_EMAIL");
+    const from = configurations.get("LEAVE_REQUEST_APP_FROM_EMAIL", "leave-request-app@example.com");
 
     if (isMailConfigured()) {
         logger.info("Sending mail to [{}] with tsubject [{}] and content: [{}]...", to, subject, content);
