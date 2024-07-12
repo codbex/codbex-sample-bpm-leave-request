@@ -19,7 +19,7 @@ export function sendMail(to: string, subject: string, content: string) {
     const from = configurations.get("LEAVE_REQUEST_APP_FROM_EMAIL", "leave-request-app@example.com");
 
     if (isMailConfigured()) {
-        logger.info("Sending mail to [{}] with tsubject [{}] and content: [{}]...", to, subject, content);
+        logger.info("Sending mail to [{}] with subject [{}] and content: [{}]...", to, subject, content);
         mailClient.send(from, to, subject, content, 'html');
     } else {
         logger.info("Mail to [{}] with subject [{}] and content [{}] will NOT be send because the mail client is not configured.", to, subject, content);

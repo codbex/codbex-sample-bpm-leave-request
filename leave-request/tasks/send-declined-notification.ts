@@ -9,9 +9,9 @@ const processVariables = process.getVariables(executionId);
 const fromDate = processVariables.fromDate;
 const toDate = processVariables.toDate;
 const approver = processVariables.approver;
-const requester = processVariables.fromDate;
+const requester = processVariables.requester;
 
 const subject = "Your leave request has been declined";
-const content = `<h4>Your leave request from [${fromDate}] to [${toDate}] has been declined by [${approver}] has been created</h4>`;
+const content = `<h4>Your leave request from [${fromDate}] to [${toDate}] has been declined by [${approver}]</h4>`;
 
 sendMail(requester, subject, content)

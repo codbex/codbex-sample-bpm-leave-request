@@ -8,7 +8,7 @@ const executionId = execution.getId();
 
 const requester = process.getVariable(executionId, "requester");
 
-const managersEmail = config.get("LEAVE_REQUEST_MANAGERS_EMAIL", "managers-dl@example.com")!;
+const managersEmail = config.get("LEAVE_REQUEST_MANAGERS_EMAIL", "managers-dl@example.com");
 const subject = "New leave request";
 const content = `<h4>A new leave request for [${requester}] has been created</h4>Open the inbox <a href="http://localhost:80/services/web/inbox/" target="_blank">here</a> to process the request.`;
 
