@@ -7,7 +7,7 @@ class ProcessService {
 
     @Post("/requests")
     public startProcess(parameters: any) {
-        const processKey = 'leave-request';
+        const processKey = 'leave-request-id';
 
         const processParams = {
             "requester": user.getName(),
