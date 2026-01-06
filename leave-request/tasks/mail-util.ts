@@ -22,7 +22,7 @@ export function sendMail(to: string, subject: string, content: string) {
         logger.info("Sending mail to [{}] with subject [{}] and content: [{}]...", to, subject, content);
         mailClient.send(from, to, subject, content, 'html');
     } else {
-        logger.info("Mail to [{}] with subject [{}] and content [{}] will NOT be send because the mail client is not configured.", to, subject, content);
+        logger.info("Mail will NOT be send because the mail client is not configured. Mail details:\nTo: {}\nSubject: {}\nContent: {}", to, subject, content);
     }
 
 }
