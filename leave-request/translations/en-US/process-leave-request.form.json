@@ -1,0 +1,20 @@
+{
+  "process-leave-request-form": {
+    "aria": {
+      "showHide": "show/hide {{element}} options",
+      "options": "{{element}} options"
+    },
+    "default": {
+      "viewName": "{{name}} Form"
+    },
+    "t": {
+      "Processleaverequest": "Process leave request",
+      "Requester": "Requester",
+      "Incorrectinput": "Incorrect input",
+      "Fromdate": "From date",
+      "Todate": "To date",
+      "Approve": "Approve",
+      "Decline": "Decline"
+    }
+  }
+}

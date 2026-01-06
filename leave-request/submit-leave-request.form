@@ -6,8 +6,8 @@
         {
             "controlId": "header",
             "groupId": "fb-display",
-            "title": "Submit new leave request",
-            "size": 1
+            "label": "Submit new leave request",
+            "headerSize": 1
         },
         {
             "controlId": "input-date",

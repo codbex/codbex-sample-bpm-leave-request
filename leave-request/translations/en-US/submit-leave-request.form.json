@@ -1,0 +1,17 @@
+{
+  "submit-leave-request-form": {
+    "aria": {
+      "showHide": "show/hide {{element}} options",
+      "options": "{{element}} options"
+    },
+    "default": {
+      "viewName": "{{name}} Form"
+    },
+    "t": {
+      "Submitnewleaverequest": "Submit new leave request",
+      "From": "From",
+      "To": "To",
+      "Submit": "Submit"
+    }
+  }
+}
