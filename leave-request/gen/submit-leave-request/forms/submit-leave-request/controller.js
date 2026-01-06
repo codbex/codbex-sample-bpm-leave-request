@@ -1,7 +1,4 @@
-const formView = angular.module('forms', ['ideUI', 'ideView']);
-
-formView.controller('FormController', ['$scope', '$http', function ($scope, $http) {
-
+angular.module('forms', ['blimpKit', 'platformView', 'platformLocale']).controller('FormController', ($scope, $http, LocaleService, ViewParameters) => {
     $scope.forms = {
         form: {}
     };
@@ -23,4 +20,4 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     }
     
 
-}]);
+});

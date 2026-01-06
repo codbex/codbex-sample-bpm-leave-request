@@ -1,6 +1,6 @@
-import { Controller, Post, Put, Get, response } from "sdk/http"
-import { process, tasks } from "sdk/bpm"
-import { user } from "sdk/security";
+import { Controller, Post, Put, Get, response } from "@aerokit/sdk/http"
+import { process, tasks } from "@aerokit/sdk/bpm"
+import { user } from "@aerokit/sdk/security";
 
 @Controller
 class ProcessService {
@@ -8,13 +8,14 @@ class ProcessService {
     @Post("/requests")
     public startProcess(parameters: any) {
         const processKey = 'leave-request-id';
+        const businessKey = 'leave-request';
 
         const processParams = {
             "requester": user.getName(),
             "toDate": parameters.toDate,
             "fromDate": parameters.fromDate
         };
-        const processInstanceId = process.start(processKey, processParams);
+        const processInstanceId = process.start(processKey, businessKey, processParams);
 
         response.setStatus(response.ACCEPTED);
         return {
@@ -48,7 +49,9 @@ class ProcessService {
     @Get("/requests/:id/details")
     public getRequestDetails(_: any, ctx: any) {
         const taskId = ctx.pathParameters.id;
-        return tasks.getVariables(taskId);
+        const variables = tasks.getVariables(taskId);
+
+        return Object.fromEntries(variables);
     }
 
 }

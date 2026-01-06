@@ -4,14 +4,19 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-	id: "leave-request-form",
-	label: "leave-request Form",
-	factory: "frame",
-	region: "bottom",
-	link: "leave-request/gen/process-leave-request/forms/process-leave-request/index.html",
+	id: 'leave-request-process-leave-request',
+	label: 'leave-request Form',
+	translation: {
+		key: 'leave-request:default.viewName',
+		options: {
+			name: 'leave-request',
+		}
+	},
+	region: 'bottom',
+	lazyLoad: false,
+	autoFocusTab: false,
+	path: 'leave-request/gen/process-leave-request/forms/process-leave-request/index.html',
 };
 if (typeof exports !== 'undefined') {
-	exports.getView = function () {
-		return viewData;
-	}
+	exports.getView = () => viewData;
 }

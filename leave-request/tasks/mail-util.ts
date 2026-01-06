@@ -1,6 +1,6 @@
-import { configurations } from "sdk/core";
-import { logging } from "sdk/log";
-import { client as mailClient } from "sdk/mail";
+import { configurations } from "@aerokit/sdk/core";
+import { logging } from "@aerokit/sdk/log";
+import { client as mailClient } from "@aerokit/sdk/mail";
 
 const logger = logging.getLogger("mail-util.ts");
 
@@ -22,7 +22,7 @@ export function sendMail(to: string, subject: string, content: string) {
         logger.info("Sending mail to [{}] with subject [{}] and content: [{}]...", to, subject, content);
         mailClient.send(from, to, subject, content, 'html');
     } else {
-        logger.info("Mail to [{}] with subject [{}] and content [{}] will NOT be send because the mail client is not configured.", to, subject, content);
+        logger.info("Mail will NOT be send because the mail client is not configured. Mail details:\nTo: {}\nSubject: {}\nContent: {}", to, subject, content);
     }
 
 }
